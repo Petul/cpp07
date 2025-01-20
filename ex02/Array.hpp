@@ -27,7 +27,7 @@ class Array
 		this->array_ = new T[n];
 		for (int i = 0; i < n; i++)
 		{
-			this->array_[i] = 0;
+			this->array_[i] = T();
 		}
 	}
 
@@ -36,7 +36,7 @@ class Array
 		this->array_ = new T[o.size_];
 		for (int i = 0; i < o.size_; i++)
 		{
-			this->array_[i] = o.array_[i];
+			this->array_[i] = T();
 		}
 	}
 
