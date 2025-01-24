@@ -22,10 +22,10 @@ class Array
 		this->array_ = new T[0];
 	}
 
-	Array(int n) : size_{n}
+	Array(unsigned int n) : size_{n}
 	{
 		this->array_ = new T[n];
-		for (int i = 0; i < n; i++)
+		for (unsigned int i = 0; i < n; i++)
 		{
 			this->array_[i] = T();
 		}
@@ -34,7 +34,7 @@ class Array
 	Array(const Array& o) : size_{o.size_}
 	{
 		this->array_ = new T[o.size_];
-		for (int i = 0; i < o.size_; i++)
+		for (unsigned int i = 0; i < o.size_; i++)
 		{
 			this->array_[i] = T();
 		}
@@ -47,8 +47,8 @@ class Array
 			return (*this);
 		}
 		delete[] this->array_;
-		this->array_ = new T*[o.size_];
-		for (int i = 0; i < o.size_; i++)
+		this->array_ = new T[o.size_];
+		for (unsigned int i = 0; i < o.size_; i++)
 		{
 			this->array_[i] = o.array_[i];
 		}
@@ -63,19 +63,19 @@ class Array
 
 	T& operator[](int i)
 	{
-		if (i < 0 || i >= this->size_)
+		if (i < 0 || static_cast<unsigned int>(i) >= this->size_)
 		{
 			throw(std::runtime_error{"Error: index out of range"});
 		}
 		return (array_[i]);
 	}
 
-	int size()
+	int size() const
 	{
 		return (this->size_);
 	}
 
    private:
-	int size_;
+	unsigned int size_;
 	T* array_;
 };

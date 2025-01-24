@@ -28,6 +28,39 @@ int main(void)
 		Array<int> a;
 		std::cout << a.size() << std::endl;
 	}
+	HEADER("Test copy constructor")
+	{
+		Array<int> a(5);
+		Array<int> b(a);
+		std::cout << "a.size(): " << a.size() << std::endl;
+		std::cout << "a[0]: " << a[0] << std::endl;
+		std::cout << "b.size(): " << b.size() << std::endl;
+		std::cout << "b[0]: " << b[0] << std::endl;
+
+		std::cout << "Change b" << std::endl;
+		b[0] = -1;
+		std::cout << "a.size(): " << a.size() << std::endl;
+		std::cout << "a[0]: " << a[0] << std::endl;
+		std::cout << "b.size(): " << b.size() << std::endl;
+		std::cout << "b[0]: " << b[0] << std::endl;
+	}
+	HEADER("Test copy assignment operator")
+	{
+		Array<int> a(5);
+		Array<int> b(1);
+		b = a;
+		std::cout << "a.size(): " << a.size() << std::endl;
+		std::cout << "a[0]: " << a[0] << std::endl;
+		std::cout << "b.size(): " << b.size() << std::endl;
+		std::cout << "b[0]: " << b[0] << std::endl;
+
+		std::cout << "Change b" << std::endl;
+		b[0] = -1;
+		std::cout << "a.size(): " << a.size() << std::endl;
+		std::cout << "a[0]: " << a[0] << std::endl;
+		std::cout << "b.size(): " << b.size() << std::endl;
+		std::cout << "b[0]: " << b[0] << std::endl;
+	}
 	HEADER("Test default int")
 	{
 		Array<int> a(5);
